@@ -1,0 +1,256 @@
+@import "config";
+@import "menu";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  @include background;
+  background: $primary-color;
+  color: set-text-color($primary-color);
+  height: 100%;
+  margin: 0;
+  font-family: "Times New Roman", Times, serif;
+  line-height: 1.5;
+}
+
+// Headings
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 400;
+
+  &.lg-heading {
+    font-size: 3rem;
+  }
+  &.Xlg-heading {
+    font-size: 6rem;
+  }
+  &.sm-heading {
+    margin-bottom: 2rem;
+    padding: 0.2rem 3rem;
+    background: rgba(lighten($primary-color, 2), 0.5);
+  }
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+header {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+}
+
+.text-secondary {
+  color: $secondary-color;
+}
+
+.text-tertiary {
+  color: $tertiary-color;
+}
+
+main {
+  padding: 4rem;
+  // Details about height
+  min-height: calc(100vh-60px);
+
+  .icons {
+    margin-top: 1rem;
+
+    a {
+      padding: 0.4rem;
+      &:hover {
+        color: $secondary-color;
+        @include easeOut();
+      }
+    }
+  }
+  &#home {
+    overflow: hidden;
+    h1 {
+      margin-top: 20vh;
+    }
+  }
+}
+
+.about-info {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-areas:
+    "profileimage profile profile profile"
+    "job1 job2 job3 job4";
+  grid-template-columns: repeat(4, 1fr);
+
+  .profile-image {
+    grid-area: profileimage;
+    margin: auto;
+    border-radius: 50%;
+    border: $secondary-color 3px solid;
+  }
+
+  .profile {
+    grid-area: profile;
+    font-size: 1.5rem;
+    h2 {
+      text-decoration: underline;
+    }
+  }
+
+  .job-1 {
+    grid-area: job1;
+  }
+
+  .job-2 {
+    grid-area: job2;
+  }
+  .job-3 {
+    grid-area: job3;
+  }
+
+  .job-4 {
+    grid-area: job4;
+  }
+
+  .job {
+    background: lighten($primary-color, 5);
+    padding: 1rem;
+    margin: center;
+    border-bottom: $secondary-color 5px solid;
+    h2 {
+      border-bottom: $secondary-color dotted;
+      border-bottom: padding;
+    }
+  }
+}
+
+// My education stuff
+.educations {
+  display: grid;
+  grid-gap: 0.7rem;
+  grid-template-columns: repeat(4, 1fr);
+
+  img {
+    width: 100%;
+    border: 3px rgb(24, 219, 56) solid;
+
+    &:hover {
+      opacity: 0.5;
+      border-color: $secondary-color;
+      @include easeOut;
+    }
+  }
+}
+
+// contact details
+.boxes {
+  display: inline-block;
+  inline-size: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 0.5rem;
+  div {
+    font-size: 2rem;
+    border: 3px #fff solid;
+    padding: 0.5rem 1.5rem;
+    margin-bottom: 6rem;
+    @include easeOut;
+
+    &:hover {
+      padding: 0.5rem 1.5rem;
+      background: $secondary-color;
+      color: set-text-color($secondary-color);
+      span {
+        color: set-text-color($secondary-color);
+      }
+    }
+  }
+}
+
+.about-skill {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-areas:
+    "skill1 skill2 skill3"
+    "skill4 skill5 skill6 "
+    "publication publication publication";
+  grid-template-columns: repeat(3, 1fr);
+
+  .skill-1 {
+    grid-area: skill1;
+  }
+
+  .skill-2 {
+    grid-area: skill2;
+  }
+  .skill-3 {
+    grid-area: skill3;
+  }
+
+  .skill-4 {
+    grid-area: skill4;
+  }
+  .skill-5 {
+    grid-area: skill5;
+  }
+
+  .skill {
+    background: lighten($primary-color, 5);
+    padding: 1rem;
+    margin: center;
+    border-bottom: $secondary-color 3px dotted;
+  }
+  .publication {
+    grid-area: publications;
+    margin: 0;
+  }
+  .publication {
+    grid-area: publication;
+  }
+}
+.Education {
+  display: grid;
+  grid-gap: 0;
+  background: lighten($tertiary-color, 10);
+  padding: 2rem;
+  margin: center;
+  border-bottom: 2px $secondary-color solid;
+}
+
+//Button styles
+
+.btn {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: 0;
+  margin-bottom: 0.3rem;
+  &:hover {
+    background: $secondary-color;
+    color: set-text-color($secondary-color);
+  }
+}
+
+.btn-light {
+  @extend.btn;
+  background: lighten($primary-color, 50);
+  color: #333;
+}
+.btn-dark {
+  @extend.btn;
+  background: darken($primary-color, 50);
+  color: #008000;
+}
+
+#main-footer {
+  text-align: center;
+  padding: 1rem;
+  margin-top: 10rem;
+  background: darken($primary-color, 10);
+  color: ser-text-color($primary-color);
+  height: 60px;
+}
+@import "mobile";
