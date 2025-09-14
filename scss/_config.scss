@@ -4,6 +4,8 @@ $tertiary-color: #020f0ed8;
 $show-home-image: true;
 $home-image: url(../img/bgr2.JPG);
 $background-opacity: 0.5;
+@use "sass:color";
+
 
 @mixin easeOut {
   transition: all 0.5s ease-out;
@@ -32,11 +34,12 @@ $background-opacity: 0.5;
 
 // how to set color
 @function set-text-color($color) {
-  @if (lightness($color) >40) {
+  @if (color.lightness($color) > 40) {
     @return black;
   } @else {
     @return white;
   }
+
 }
 
 // Media Query Mixins

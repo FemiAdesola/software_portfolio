@@ -1,4 +1,8 @@
 // Menu button in upper area
+@use "config" as *;
+@use "sass:color";
+
+
 .menu-btn {
   position: absolute;
   z-index: 3;
@@ -65,7 +69,7 @@
   &-nav {
     margin: 0;
     padding: 0;
-    background: darken($color: $primary-color, $amount: 5);
+    background: color.scale($primary-color, $lightness: -5%);
     list-style: none;
     transform: translate3d(0, -100%, 0);
     @include easeOut;
